@@ -14,7 +14,7 @@ export default function List() {
   function addNote(e) {
     e.preventDefault()
     const id = uuid()
-    notes.push({ id: id, content: 'Nouvelle note' })
+    notes.push({ id: id, content: '' })
     localStorage.setItem('notes', JSON.stringify(notes))
     navigate(`/note/${ id }`)
   }
