@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import ReactDOM from 'react-dom'
+import List from './components/List'
+import Single from './components/Single'
+import '@picocss/pico'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={ <List /> } />
+      <Route path="/note/:id" element={ <Single /> } />
+      <Route path="*" element={ <Link to="/">Rien ici 😅 on revient en arrière ?</Link> } />
+    </Routes>
+  </BrowserRouter>,
+  document.getElementById('kote')
+)
